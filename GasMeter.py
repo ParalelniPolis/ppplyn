@@ -1,5 +1,5 @@
 
-from SimpleCV import Color, Image
+from SimpleCV import Color
 
 from operator import itemgetter, attrgetter, methodcaller
 
@@ -34,10 +34,8 @@ class GasMeter(object):
 
     DEBUG = True
 
-    def __init__(self, image_path):
-        self.image_path = image_path
-
-        self.image = Image(self.image_path)
+    def __init__(self, image):
+        self.image = image
 
         self.digit_detector = TemplateDigitDetector()
         self.blob_storage = BlobStorage("./images/debug/blobs/")
