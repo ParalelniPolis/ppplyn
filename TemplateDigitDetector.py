@@ -5,7 +5,6 @@ from SimpleCV import Image
 from operator import itemgetter
 
 import logging
-logging.getLogger().setLevel(logging.DEBUG)
 
 
 class TemplateDigitDetector(object):

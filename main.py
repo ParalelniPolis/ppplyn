@@ -1,6 +1,9 @@
 #!/usr/bin/python2
 
-from SimpleCV import Image, ImageSet
+import logging
+logging.getLogger().setLevel(logging.INFO)
+
+from SimpleCV import ImageSet
 
 from GasMeter import GasMeter
 

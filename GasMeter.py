@@ -9,7 +9,6 @@ from TemplateDigitDetector import TemplateDigitDetector
 from BlobStorage import BlobStorage
 
 import logging
-logging.getLogger().setLevel(logging.DEBUG)
 
 
 class GasMeter(object):
@@ -73,7 +72,7 @@ class GasMeter(object):
 
                 self.blob_storage.store_blob(img_blob)
 
-        print("".join(detected_digits))
+        return ("".join(detected_digits))
 
     def find_digits_in_area(self, digits_area):
         """
@@ -150,7 +149,7 @@ class GasMeter(object):
 
         sorted_by_xy = sorted(list(array), key=itemgetter(0, 1))
 
-        print(sorted_by_xy)
+        # print(sorted_by_xy)
 
         top_left = sorted_by_xy[0]
         top_right = sorted_by_xy[3]
@@ -169,5 +168,5 @@ class GasMeter(object):
 
         if self.DEBUG:
             filename = image_name + ".png"
-            logging.info("Storing debug image " + filename)
+            logging.debug("Storing debug image " + filename)
             image.save("./images/debug/" + filename)
