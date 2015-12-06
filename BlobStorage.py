@@ -1,11 +1,7 @@
 
-import hashlib
-
 import logging
 
 import numpy
-
-from random import randint
 
 
 class BlobStorage(object):
@@ -18,12 +14,8 @@ class BlobStorage(object):
 
     def blob_filename(self, blob):
 
-        # blob_hash = hashlib.md5(blob.getNumpy())
-
-        # return blob_hash.hexdigest()
-
         image_sum = numpy.sum(blob.getNumpy())
-        
+
         return image_sum
 
     def store_blob(self, blob):
@@ -31,4 +23,8 @@ class BlobStorage(object):
         This method is called by GasMeter with a single image to be stored
         """
 
-        blob.save(self.storage_dir + "/blobstorage_" + str(self.blob_filename(blob)) + ".png")
+        store_path = self.storage_dir + "/blobstorage_" + str(self.blob_filename(blob)) + ".png"
+
+        logging.debug("Storing blob " + store_path)
+
+        blob.save(store_path)
