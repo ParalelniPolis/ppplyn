@@ -30,3 +30,7 @@
 ### Digits in black and white
 
 ![Digits in color](docs/white_digits.png)
+
+## Physical setup
+
+![Camera from the front side](docs/camera_front.jpg) ![Camera from the back side](docs/camera_back.jpg)
