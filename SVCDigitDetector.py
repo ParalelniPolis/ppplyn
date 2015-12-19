@@ -24,7 +24,7 @@ class SVCDigitDetector(object):
     def __init__(self):
 
         if isfile(self.neural_network_cache):
-            logging.info("Loading neural netowrk from cache")
+            logging.debug("Loading neural netowrk from cache")
             cache_file = open(self.neural_network_cache, "rb")
             self.neural_network = pickle.load(cache_file)
         else:
