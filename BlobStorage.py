@@ -1,7 +1,7 @@
 
 import logging
 
-import numpy
+import hashlib
 
 
 class BlobStorage(object):
@@ -14,9 +14,15 @@ class BlobStorage(object):
 
     def blob_filename(self, blob):
 
-        image_sum = numpy.sum(blob.getNumpy())
+        digit_list = []
 
-        return image_sum
+        for digit in blob.getNumpy().ravel():
+            digit_list.append(str(digit))
+
+        md5 = hashlib.md5()
+        md5.update("".join(digit_list))
+
+        return str(md5.hexdigest())
 
     def store_blob(self, blob):
         """
