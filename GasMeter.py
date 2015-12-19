@@ -5,7 +5,9 @@ from operator import itemgetter, attrgetter, methodcaller
 
 import cv
 
-from TemplateDigitDetector import TemplateDigitDetector
+# from TemplateDigitDetector import TemplateDigitDetector
+from SVCDigitDetector import SVCDigitDetector
+
 from BlobStorage import BlobStorage
 
 import logging
@@ -36,7 +38,9 @@ class GasMeter(object):
     def __init__(self, image):
         self.image = image
 
-        self.digit_detector = TemplateDigitDetector()
+        # self.digit_detector = TemplateDigitDetector()
+        self.digit_detector = SVCDigitDetector()
+
         self.blob_storage = BlobStorage("./images/debug/blobs/")
 
     def get_meter_value(self):

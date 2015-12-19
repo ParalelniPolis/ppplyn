@@ -1,3 +1,4 @@
 images/debug/
 images/input/
 *.py[cod]
+neural_network.pickle
