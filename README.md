@@ -12,6 +12,7 @@
     cd ppplyn
 
 ## Test image recognition on images included in repository
+    ./test.py
 
 ## How does it work
 
