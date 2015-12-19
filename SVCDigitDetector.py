@@ -54,7 +54,7 @@ class SVCDigitDetector(object):
 
     def train_network(self):
 
-        logging.info("Training neural network")
+        logging.info("Training the model")
 
         self.neural_network.fit(self.dataset_array, self.dataset_digit)
 
