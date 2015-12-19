@@ -36,7 +36,7 @@ class SVCDigitDetector(object):
 
     def train(self, digits_path):
 
-        for digit_to_train in range(0, 10):
+        for digit_to_train in range(-1, 10):
 
             logging.info("Training digit " + str(digit_to_train))
 
@@ -77,4 +77,8 @@ class SVCDigitDetector(object):
 
         name = self.neural_network.predict(image_array)
 
-        return name[0]
+        if name[0] > 0:
+            return name[0]
+        else:
+            # -1 are invalid blobs
+            return None
