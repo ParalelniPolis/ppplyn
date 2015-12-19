@@ -12,7 +12,7 @@ import pickle
 
 class SVCDigitDetector(object):
 
-    TEMPLATE_SIZE = (10, 50)
+    TEMPLATE_SIZE = (10, 40)
 
     dataset_array = []
     dataset_digit = []
