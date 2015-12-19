@@ -13,15 +13,16 @@
 
 ## Test image recognition on images included in repository
     ./test.py
-    ./images/input/camera_1449323822.png    014741643
-    ./images/input/camera_1449323828.png    0147464
-    ./images/input/camera_1449323833.png    014741648
-    ./images/input/camera_1449323838.png    01474165
-    ./images/input/camera_1449323843.png    014741652
-    ./images/input/camera_1449323848.png    0147465
-    ./images/input/camera_1449323854.png    014741657
-    ./images/input/camera_1449323859.png    0147416
-    ./images/input/camera_1449323864.png    01474662
+    ./images/input/camera_1449323822.png    1474643
+    ./images/input/camera_1449323828.png    147464
+    ./images/input/camera_1449323833.png    1474648
+    ./images/input/camera_1449323838.png    147465
+    ./images/input/camera_1449323843.png    1474652
+    ./images/input/camera_1449323848.png    147465
+    ./images/input/camera_1449323854.png    147465
+    ./images/input/camera_1449323859.png    14746
+    ./images/input/camera_1449323864.png    1474662
+    ./images/input/camera_1449323870.png    147466
     ...
     ...
 
