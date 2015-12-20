@@ -32,7 +32,7 @@ while True:
     gas = GasMeter(camera_image)
     value = gas.get_meter_value()
 
-    stamp = time.strftime("%d/%m/%Y %I:%M:%S")
+    stamp = time.strftime("%d/%m/%Y %H:%M:%S")
 
     print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run))
 
