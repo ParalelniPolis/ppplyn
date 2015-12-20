@@ -64,7 +64,7 @@ class GasMeter(object):
 
             # print("blob " + str(blob.area()) + " " + str(blob.meanColor()))
 
-            img_blob = blob.blobImage()
+            img_blob = blob.blobImage().binarize(self.DIGITS_THRESHOLD).invert()
 
             img_blob_ratio = img_blob.height / float(img_blob.width)
 
@@ -87,12 +87,12 @@ class GasMeter(object):
         Find white digits in given area
         """
 
-        white_digits = digits_area.colorDistance(color=Color.WHITE).binarize(self.DIGITS_THRESHOLD)
+        # white_digits = digits_area.colorDistance(color=Color.WHITE).binarize(self.DIGITS_THRESHOLD)
 
-        self._save_debug_image(white_digits, "white_digits")
+        # self._save_debug_image(white_digits, "white_digits")
 
         # Fidn digits the area
-        digits = white_digits.findBlobs(minsize=self.DIGITS_MINSIZE)
+        digits = digits_area.findBlobs(minsize=self.DIGITS_MINSIZE)
 
         # Sort digits by X coordinate
         return sorted(digits, key=attrgetter("x"))
