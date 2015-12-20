@@ -28,6 +28,6 @@ while True:
     gas = GasMeter(camera_image)
     value = gas.get_meter_value()
 
-    print(camera_image.filename + "\t" + value)
+    print(camera_image.filename + "\t" + str(value))
 
     time.sleep(5)
