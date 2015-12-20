@@ -15,4 +15,4 @@ for frame in test_frames:
     gas = GasMeter(frame)
     value = gas.get_meter_value()
 
-    print(frame.filename + "\t" + value)
+    print(frame.filename + "\t" + str(value))

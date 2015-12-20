@@ -77,7 +77,9 @@ class GasMeter(object):
 
                 self.blob_storage.store_blob(img_blob)
 
-        return ("".join(detected_digits))
+        digits_string = "".join(detected_digits).lstrip("0")
+
+        return float(digits_string[0:4] + "." + digits_string[4:6])
 
     def find_digits_in_area(self, digits_area):
         """
