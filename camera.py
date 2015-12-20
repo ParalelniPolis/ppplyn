@@ -6,6 +6,8 @@ import time
 
 from GasMeter import GasMeter
 
+import sys
+
 cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
@@ -35,5 +37,7 @@ while True:
     print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run))
 
     prev_run = value
+
+    sys.stdout.flush()
 
     time.sleep(5)
