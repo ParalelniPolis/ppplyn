@@ -15,6 +15,7 @@ while True:
     if first_image:
         first_image = False
         print("Skiping first image")
+        time.sleep(5)
         continue
 
     filename = "./images/camera/camera_" + str(int(time.time())) + ".png"
