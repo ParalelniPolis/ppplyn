@@ -6,6 +6,8 @@ import time
 
 from GasMeter import GasMeter
 
+import time
+
 cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
@@ -20,7 +22,7 @@ while True:
 
     filename = "./images/camera/camera_" + str(int(time.time())) + ".png"
 
-    print("Saving image " + filename)
+    # print("Saving image " + filename)
 
     camera_image = cam.getImage()
     camera_image.save(filename)
@@ -28,6 +30,8 @@ while True:
     gas = GasMeter(camera_image)
     value = gas.get_meter_value()
 
-    print(camera_image.filename + "\t" + str(value))
+    stamp = time.strftime("%d/%m/%Y %I:%M:%S")
+
+    print(camera_image.filename + "\t" + stamp + "\t" + str(value))
 
     time.sleep(5)
