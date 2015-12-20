@@ -69,6 +69,7 @@ class GasMeter(object):
             img_blob_ratio = img_blob.height / float(img_blob.width)
 
             if img_blob_ratio > 2:
+                # Digits is rectangle
 
                 detected_digit = self.digit_detector.detect_digit(img_blob)
 
