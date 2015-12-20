@@ -8,7 +8,13 @@ from GasMeter import GasMeter
 
 cam = Camera(0, {"width": 1280, "height": 720})
 
+first_image = True
+
 while True:
+
+    if first_image:
+        first_image = False
+        continue
 
     filename = "./images/camera/camera_" + str(int(time.time())) + ".png"
 

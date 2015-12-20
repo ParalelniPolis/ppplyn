@@ -5,7 +5,7 @@
  *Work in progress...*
 
 ## Getting things ready
-    sudo apt-get install ipython python-opencv python-scipy python-numpy python-pygame python-setuptools python-pip
+    sudo apt-get install ipython python-opencv python-scipy python-numpy python-pygame python-setuptools python-pip python-sklearn
     sudo pip install https://github.com/sightmachine/SimpleCV/zipball/develop
     sudo pip install svgwrite
     git clone git@github.com:ParalelniPolis/ppplyn.git
