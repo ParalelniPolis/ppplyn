@@ -10,7 +10,7 @@ cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
 
-diff = 0
+prev_run = 0
 
 while True:
 
@@ -32,8 +32,8 @@ while True:
 
     stamp = time.strftime("%d/%m/%Y %I:%M:%S")
 
-    diff = value - diff
+    print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run))
 
-    print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(diff))
+    prev_run = value
 
     time.sleep(5)
