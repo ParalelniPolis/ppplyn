@@ -77,7 +77,7 @@ class SVCDigitDetector(object):
 
         name = self.neural_network.predict(image_array)
 
-        if name[0] > 0:
+        if name[0] >= 0:
             return name[0]
         else:
             # -1 are invalid blobs
