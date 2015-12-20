@@ -1,3 +1,4 @@
 images/debug/
+images/camera/
 *.py[cod]
 neural_network.pickle
