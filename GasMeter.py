@@ -72,7 +72,7 @@ class GasMeter(object):
 
                 detected_digit = self.digit_detector.detect_digit(img_blob)
 
-                if detected_digit:
+                if detected_digit is not None:
                     detected_digits.append(str(detected_digit))
 
                 self.blob_storage.store_blob(img_blob)

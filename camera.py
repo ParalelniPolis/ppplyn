@@ -4,6 +4,8 @@ from SimpleCV import Camera
 
 import time
 
+from GasMeter import GasMeter
+
 cam = Camera(0, {"width": 1280, "height": 720})
 
 while True:
@@ -12,6 +14,12 @@ while True:
 
     print("Saving image " + filename)
 
-    cam.getImage().save(filename)
+    camera_image = cam.getImage()
+    camera_image.save(filename)
+
+    gas = GasMeter(camera_image)
+    value = gas.get_meter_value()
+
+    print(camera_image.filename + "\t" + value)
 
     time.sleep(5)
