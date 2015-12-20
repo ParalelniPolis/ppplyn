@@ -6,11 +6,11 @@ import time
 
 from GasMeter import GasMeter
 
-import time
-
 cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
+
+diff = 0
 
 while True:
 
@@ -32,6 +32,8 @@ while True:
 
     stamp = time.strftime("%d/%m/%Y %I:%M:%S")
 
-    print(camera_image.filename + "\t" + stamp + "\t" + str(value))
+    diff = value - diff
+
+    print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(diff))
 
     time.sleep(5)
