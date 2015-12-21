@@ -9,6 +9,9 @@ from GasMeter import GasMeter
 import sys
 
 cam = Camera(0, {"width": 1280, "height": 720})
+# v4l2-ctl --set-ctrl brightness=100
+# v4l2-ctl --list-ctrls
+# v4l2-ctl --info
 
 first_image = True
 
@@ -17,12 +20,13 @@ prev_run = 0
 while True:
 
     if first_image:
+        # Skip first image
         first_image = False
-        print("Skiping first image")
         time.sleep(5)
         continue
 
-    filename = "./images/camera/camera_" + str(int(time.time())) + ".png"
+    image_filename = "camera_" + str(int(time.time())) + ".png"
+    filename = "./images/camera/" + image_filename
 
     # print("Saving image " + filename)
 
@@ -34,7 +38,7 @@ while True:
 
     stamp = time.strftime("%d/%m/%Y %H:%M:%S")
 
-    print(camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run))
+    print(image_filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run))
 
     prev_run = value
 
