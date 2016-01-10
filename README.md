@@ -12,19 +12,27 @@
     cd ppplyn
 
 ## Test image recognition on images included in repository
-    ./test.py
-    ./images/input/camera_1449323822.png    1474643
-    ./images/input/camera_1449323828.png    147464
-    ./images/input/camera_1449323833.png    1474648
-    ./images/input/camera_1449323838.png    147465
-    ./images/input/camera_1449323843.png    1474652
-    ./images/input/camera_1449323848.png    147465
-    ./images/input/camera_1449323854.png    147465
-    ./images/input/camera_1449323859.png    14746
-    ./images/input/camera_1449323864.png    1474662
-    ./images/input/camera_1449323870.png    147466
-    ...
-    ...
+    ./images/input/camera_1449323843.png	1474.652
+    ./images/input/camera_1449323833.png	1474.648
+    ./images/input/camera_1449323854.png	1474.657
+    ./images/input/camera_1449323901.png	1474.678
+    ./images/input/camera_1449323870.png	1474.664
+    ./images/input/camera_1449323822.png	1474.643
+    ./images/input/camera_1449323906.png	1474.680
+    ./images/input/camera_1450650840.png	1947.815
+    ./images/input/camera_1449323880.png	1474.669
+    ./images/input/camera_1449323838.png	1474.650
+    ./images/input/camera_1449323864.png	1474.662
+    ./images/input/camera_1449323917.png	1474.685
+    ./images/input/camera_1449323912.png	1474.683
+    ./images/input/camera_1449323896.png	1474.675
+    ./images/input/camera_1449323875.png	1474.665
+    ./images/input/camera_1449323828.png	1474.645
+    ./images/input/camera_1449323848.png	1474.655
+    ./images/input/camera_1449323859.png	1474.635
+    ./images/input/camera_1449323891.png	1474.673
+    ./images/input/camera_1449323885.png	1474.671
+
 
 ## Detecting digits
 
