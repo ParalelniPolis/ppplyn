@@ -33,9 +33,13 @@ class GasMeter(object):
     DIGITS_THRESHOLD = 110
     DIGITS_MINSIZE = 1500
 
-    DEBUG = True
+    DEBUG = False
+
+    if DEBUG:
+        logging.basicConfig(level=logging.DEBUG)
 
     def __init__(self, image):
+
         self.image = image
 
         # self.digit_detector = TemplateDigitDetector()
@@ -169,12 +173,12 @@ class GasMeter(object):
 
         return [top_left, top_right, bottom_right, bottom_left]
 
-    def _save_debug_image(self, image, image_name):
+    def _save_debug_image(self, image, image_name, force_store=False):
         """
         Just stores an image for debugging
         """
 
-        if self.DEBUG:
+        if force_store or self.DEBUG:
             filename = image_name + ".png"
             logging.debug("Storing debug image " + filename)
             image.save("./images/debug/" + filename)
