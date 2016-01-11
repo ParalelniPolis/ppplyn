@@ -1,6 +1,6 @@
-from SimpleCV import Color, Features
+from SimpleCV import Color
 
-from operator import itemgetter, attrgetter, methodcaller
+from operator import itemgetter, methodcaller
 
 import cv
 
@@ -21,7 +21,7 @@ class GasMeter(object):
     MARKERS_COLOR = (255, 228, 110)
     # Color stickers on the meter
     MARKERS_THRESHOLD = 60
-    MARKERS_MINSIZE = 1000
+    MARKERS_MINSIZE = 600
 
     # Once we have fixed perspective, resize to this size
     RESIZE_TO_HEIGHT = 1529
@@ -84,7 +84,7 @@ class GasMeter(object):
             self._save_debug_image(img_blob, "blob" + str(idx))
 
             # to which list should I save this digit?
-            if idx+1 <= self.DIGITS_WHOLE_CUBIC_METERS:
+            if idx + 1 <= self.DIGITS_WHOLE_CUBIC_METERS:
                 save_list = detected_digits_whole
             else:
                 save_list = detected_digits_fraction
@@ -103,7 +103,7 @@ class GasMeter(object):
 
             else:
                 # if we didn't recognized the last digit we suppose it is 5
-                if idx+1 == self.DIGITS_TOTAL_NUMBER:
+                if idx + 1 == self.DIGITS_TOTAL_NUMBER:
                     detected_digits_fraction.append('5')
                 else:
                     save_list.append("X")
@@ -125,14 +125,14 @@ class GasMeter(object):
             digit_area = digits_area[x1:x2, :]
 
             # return only the largest blob which should hopefully be our number
-            digit_blob = digit_area.findBlobs(minsize=self.DIGITS_MINSIZE * 2, appx_level=1)[-1]
             self._save_debug_image(digit_area, "blobs_my_way" + str(digit_i))
-            digits.append(digit_blob)
+            digit_blob = digit_area.findBlobs(minsize=self.DIGITS_MINSIZE * 2, appx_level=1)
+            if digit_blob:
+                digits.append(digit_blob[-1])
 
             logging.debug("Blobbing digit: " + str(digit_i))
 
         return digits
-
 
     def fix_perspective(self, meter_corners):
         """
