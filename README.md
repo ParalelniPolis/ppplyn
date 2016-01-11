@@ -12,6 +12,7 @@
     cd ppplyn
 
 ## Test image recognition on images included in repository
+    ./test.py
     ./images/input/camera_1449323843.png	1474.652
     ./images/input/camera_1449323833.png	1474.648
     ./images/input/camera_1449323854.png	1474.657
@@ -33,6 +34,12 @@
     ./images/input/camera_1449323891.png	1474.673
     ./images/input/camera_1449323885.png	1474.671
 
+## Tools for camera settings
+    v4l2-ctl --set-ctrl brightness=100
+    # This needs to be done after reboot
+    v4l2-ctl --list-ctrls
+    # List options for current webcam
+    v4l2-ctl --info
 
 ## Detecting digits
 
