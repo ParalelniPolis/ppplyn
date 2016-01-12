@@ -22,8 +22,7 @@ class TemplateDigitDetector(object):
 
         detected_digits = []
 
-        # We don't reconize all digits yet
-        for digit in [0, 1, 3, 4, 5, 6, 7, 8, 9]:
+        for digit in range(10):
             template_image = Image("./images/digits/" + str(digit) + ".png").resize(w=digit_image.width, h=digit_image.height)
 
             diff_image = digit_image - template_image

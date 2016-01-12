@@ -24,7 +24,4 @@ for frame in test_frames:
     if is_number(value):
         print(frame.filename + "\t" + "{0:.3f}".format(float(value)))
     else:
-        print(frame.filename + "\t" + value + " UNRELIABLE" )
-
-
-
+        print(frame.filename + "\t" + value + " UNRELIABLE")

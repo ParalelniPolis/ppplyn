@@ -19,7 +19,7 @@ class SVCDigitDetector(object):
 
     neural_network = LinearSVC()
 
-    neural_network_cache = "./neural_network.pickle"
+    neural_network_cache = "./linear_svc_model.pickle"
 
     def __init__(self):
 

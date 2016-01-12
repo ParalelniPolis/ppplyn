@@ -102,6 +102,34 @@ Now we are ready find blobs (digits) in the image. With some black magic we can 
     Digit 8       70 samples
     Digit 9       99 samples
 
+## Testing digit detectors
+Currently we have two ways how to detect digits. *SVCDigitDetector* (LinearSVC - best) and *TemplateDigitDetector* (template substraction - poor).
+
+There is a simple tool which tests detectors with the testing dataset.
+
+    ./test_detectors.py
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    svc_digit:0 template_digit:0
+    ...
+    ...
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:8
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:8
+    svc_digit:9 template_digit:0
+    svc_digit:9 template_digit:8
+    SVCDigitDetector    99.3342210386%
+    TemplateDigitDetector   76.0319573901%
+
+
 ## Physical setup
 
 * ODROID-U3
