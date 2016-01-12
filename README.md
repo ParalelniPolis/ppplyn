@@ -78,16 +78,29 @@ Now we are ready find blobs (digits) in the image. With some black magic we can 
 
 ## Training dataset
     for i in {0..9}; do echo -n "Digit $i "; echo "`ls $i/*.png | wc -l` samples"; done
-    Digit 0      549 samples
-    Digit 1      529 samples
-    Digit 2      130 samples
-    Digit 3      144 samples
-    Digit 4      509 samples
-    Digit 5      236 samples
-    Digit 6      158 samples
-    Digit 7      385 samples
-    Digit 8      223 samples
-    Digit 9      519 samples
+    Digit 0      481 samples
+    Digit 1      452 samples
+    Digit 2       99 samples
+    Digit 3       79 samples
+    Digit 4      409 samples
+    Digit 5      142 samples
+    Digit 6      102 samples
+    Digit 7      294 samples
+    Digit 8      153 samples
+    Digit 9      420 samples
+
+## Testing dataset
+    for i in {0..9}; do echo -n "Digit $i "; echo "`ls $i/*.png | wc -l` samples"; done
+    Digit 0       68 samples
+    Digit 1       77 samples
+    Digit 2       31 samples
+    Digit 3       65 samples
+    Digit 4      100 samples
+    Digit 5       94 samples
+    Digit 6       56 samples
+    Digit 7       91 samples
+    Digit 8       70 samples
+    Digit 9       99 samples
 
 ## Physical setup
 
