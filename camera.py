@@ -12,7 +12,7 @@ cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
 
-prev_run = 0
+prev_run = ""
 
 while True:
 
@@ -38,7 +38,7 @@ while True:
     value = gas.get_meter_value()
 
     if value.find('X') == -1 and prev_run.find('X') == -1:
-        output_line = camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + str(value - prev_run)
+        output_line = camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t"
     else:
         output_line = camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + "UNKNOWN"
 

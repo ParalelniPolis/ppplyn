@@ -108,14 +108,14 @@ class GasMeter(object):
                 else:
                     save_list.append("X")
 
-            # This stores detected blobs (digits) into ./images/debug/blobs/
+            # This stores blobs (digits) into ./images/debug/blobs/
             # Great for creating datasets. See BlobStorage.py for details
             self.blob_storage.store_blob(img_blob)
 
         detected_digits_whole_string = "".join(detected_digits_whole)
         detected_digits_fraction_string = "".join(detected_digits_fraction)
 
-        return detected_digits_whole_string + "." + detected_digits_fraction_string
+        return detected_digits_whole_string.lstrip("0") + "." + detected_digits_fraction_string
 
     def find_digits_in_area_by_cutting(self, digits_area):
         """
