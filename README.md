@@ -76,6 +76,19 @@ Now we are ready find blobs (digits) in the image. With some black magic we can 
 ## Machine learning
  *Work in progress...*
 
+## Training dataset
+    for i in {0..9}; do echo -n "Digit $i "; echo "`ls $i/*.png | wc -l` samples"; done
+    Digit 0      549 samples
+    Digit 1      529 samples
+    Digit 2      130 samples
+    Digit 3      144 samples
+    Digit 4      509 samples
+    Digit 5      236 samples
+    Digit 6      158 samples
+    Digit 7      385 samples
+    Digit 8      223 samples
+    Digit 9      519 samples
+
 ## Physical setup
 
 * ODROID-U3
