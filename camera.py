@@ -23,7 +23,8 @@ while True:
         continue
 
     # External 16G USB drive is mounted here
-    filename = "./images/camera/camera_" + str(int(time.time())) + ".png"
+    image_filename = "camera_" + str(int(time.time())) + ".png"
+    filename = "./images/camera/" + image_filename
 
     # print("Saving image " + filename)
 
@@ -38,11 +39,14 @@ while True:
     value = gas.get_meter_value()
 
     if value.find('X') == -1 and prev_run.find('X') == -1:
-        output_line = camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t"
+        output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t"
     else:
-        output_line = camera_image.filename + "\t" + stamp + "\t" + str(value) + "\t" + "UNKNOWN"
+        output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t" + "UNKNOWN"
 
     print(output_line)
+
+    with open('./camera_output.tsv', 'a+') as tsv_file:
+        tsv_file.write(output_line + "\n")
 
     prev_run = value
 
