@@ -58,18 +58,13 @@ Knowing position of each corner, we can transform image to rectangle. This helps
 
 ![Fixed perspective](docs/fixed_perspective.png)
 
-### Digits
-We crop the image to contain only digits
+### Digits detection
+Now we can assume in which area of the image is each digit. These coordinates are hardcoded in the detector.
 
-![Digits in color](docs/digits_area.png)
-
-### Digits in black and white
-Digits are white, lets ignore anything else
-
-![Digits in black and white](docs/white_digits.png)
+![Fixed perspective](docs/fixed_perspective_boxes.png)
 
 ### Single digits
-Now we are ready find blobs (digits) in the image. With some black magic we can ignore blobs which are not digits, reflections and crap we are not interested in.
+Now we are ready find blobs (digits) in each rectangle. With some black magic we can ignore blobs which are not digits, reflections and crap we are not interested in.
 
 ![Digits 5](docs/5.png) ![Digit 7](docs/7.png) ![Digit 3](docs/3.png) ![Digit 9](docs/9.png)
 
@@ -77,6 +72,8 @@ Now we are ready find blobs (digits) in the image. With some black magic we can 
  *Work in progress...*
 
 ## Training dataset
+This [dataset](images/dataset) is used for training of image recognition algoritm.
+
     for i in {0..9}; do echo -n "Digit $i "; echo "`ls $i/*.png | wc -l` samples"; done
     Digit 0      481 samples
     Digit 1      452 samples
@@ -90,6 +87,8 @@ Now we are ready find blobs (digits) in the image. With some black magic we can 
     Digit 9      420 samples
 
 ## Testing dataset
+Testing [dataset](images/dataset-test) contains images which are not prsent in the Training dataset
+
     for i in {0..9}; do echo -n "Digit $i "; echo "`ls $i/*.png | wc -l` samples"; done
     Digit 0       68 samples
     Digit 1       77 samples

@@ -14,6 +14,15 @@ first_image = True
 
 prev_run = ""
 
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+
 while True:
 
     if first_image:
@@ -38,8 +47,9 @@ while True:
     # value is returned as a string. It can have X in the place of unrecognized character
     value = gas.get_meter_value()
 
-    if value.find('X') == -1 and prev_run.find('X') == -1:
+    if value.find('X') == -1:
         output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t"
+        prev_run = value
     else:
         output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t" + "UNKNOWN"
 
@@ -47,8 +57,6 @@ while True:
 
     with open('./camera_output.tsv', 'a+') as tsv_file:
         tsv_file.write(output_line + "\n")
-
-    prev_run = value
 
     sys.stdout.flush()
 
