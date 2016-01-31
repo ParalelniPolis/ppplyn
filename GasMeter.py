@@ -21,7 +21,7 @@ class GasMeter(object):
     MARKERS_COLOR = (255, 228, 110)
     # Color stickers on the meter
     MARKERS_THRESHOLD = 60
-    MARKERS_MINSIZE = 600
+    MARKERS_MINSIZE = 500
 
     # Once we have fixed perspective, resize to this size
     RESIZE_TO_HEIGHT = 1529
