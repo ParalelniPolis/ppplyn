@@ -47,16 +47,23 @@ while True:
     # value is returned as a string. It can have X in the place of unrecognized character
     value = gas.get_meter_value()
 
+    csv_line = []
+
+    csv_line.append(image_filename)
+    csv_line.append(stamp)
+    csv_line.append(str(value))
+
     if value.find('X') == -1:
-        output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t"
         prev_run = value
     else:
-        output_line = image_filename + "\t" + stamp + "\t" + str(value) + "\t" + "UNKNOWN"
+        csv_line.append("UNKNOWN")
 
-    print(output_line)
+    csv_line_str = ";".join(csv_line)
+
+    print(csv_line_str)
 
     with open('./camera_output.tsv', 'a+') as tsv_file:
-        tsv_file.write(output_line + "\n")
+        tsv_file.write(csv_line_str + "\n")
 
     sys.stdout.flush()
 
