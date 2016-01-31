@@ -2,7 +2,8 @@
 
 ## Why
 
- *Work in progress...*
+ Paralelni Polis has 3 hungry gas boilers and we want to keep an eye on amount of gas they eat.
+ Doing gas reading in 2016 with pen and paper is more than cumbersome.
 
 ## Getting things ready
     sudo apt-get install ipython python-opencv python-scipy python-numpy python-pygame python-setuptools python-pip python-sklearn
@@ -69,7 +70,14 @@ Now we are ready find blobs (digits) in each rectangle. With some black magic we
 ![Digits 5](docs/5.png) ![Digit 7](docs/7.png) ![Digit 3](docs/3.png) ![Digit 9](docs/9.png)
 
 ## Machine learning
- *Work in progress...*
+Currently we have two classificators used for digit recognition.
+
+* [SVCDigitDetector](SVCDigitDetector.py) - Detector based on LinearSVC from Scikit
+* [TemplateDigitDetector](TemplateDigitDetector.py) - Dumb detector substracting two images and measuring the difference
+
+Feel free to implement any other detector, it just needs to have method ```detect_digit()```
+
+At some point I want to implement ideas mentioned in [this article](http://joshmontague.com/posts/2016/mnist-scikit-learn/)
 
 ## Training dataset
 This [dataset](images/dataset) is used for training of image recognition algoritm.
