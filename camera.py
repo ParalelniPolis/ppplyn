@@ -6,6 +6,10 @@ import time
 
 from GasMeter import GasMeter
 
+from secret_key import SECRET_KEY
+
+import requests
+
 import sys
 
 cam = Camera(0, {"width": 1280, "height": 720})
@@ -62,6 +66,15 @@ while True:
     csv_line_str = ";".join(csv_line)
 
     print(csv_line_str)
+
+    api_data = {
+        "data": csv_line_str,
+        "key": SECRET_KEY
+    }
+
+    api_call = requests.post('http://gas.pavelkral.eu/index.html', json=api_data)
+
+    print(api_call.status_code)
 
     with open('./camera_output.tsv', 'a+') as tsv_file:
         tsv_file.write(csv_line_str + "\n")

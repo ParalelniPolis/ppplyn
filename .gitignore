@@ -2,3 +2,4 @@ images/debug/*
 images/camera/*
 *.py[cod]
 linear_svc_model.pickle
+secret_key.py
