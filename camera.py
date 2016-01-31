@@ -72,7 +72,7 @@ while True:
         "key": SECRET_KEY
     }
 
-    api_call = requests.post('http://gas.pavelkral.eu/index.html', json=api_data)
+    api_call = requests.post('http://gas.pavelkral.eu/index.html', data=api_data)
 
     print(api_call.status_code)
 
