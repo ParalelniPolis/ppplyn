@@ -52,6 +52,7 @@ while True:
     csv_line.append(image_filename)
     csv_line.append(stamp)
     csv_line.append(str(value))
+    csv_line.append(str(int(time.time())))
 
     if value.find('X') == -1:
         prev_run = value
