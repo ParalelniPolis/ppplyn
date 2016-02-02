@@ -76,8 +76,10 @@ while True:
 
     print(api_call.status_code)
 
-    with open('./camera_output.tsv', 'a+') as tsv_file:
-        tsv_file.write(csv_line_str + "\n")
+    if value.find('X') == -1:
+        # Write only valid values
+        with open('./camera_output.tsv', 'a+') as tsv_file:
+            tsv_file.write(csv_line_str + "\n")
 
     sys.stdout.flush()
 
