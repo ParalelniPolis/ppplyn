@@ -66,10 +66,10 @@ while True:
     csv_line.append(str(weather.air_pressure))
     csv_line.append(str(weather.air_wind))
 
-    if value.find('X') == -1:
-        prev_run = value
-    else:
-        csv_line.append("UNKNOWN")
+    # if value.find('X') == -1:
+    #     prev_run = value
+    # else:
+    #     csv_line.append("UNKNOWN")
 
     csv_line_str = ";".join(csv_line)
 
