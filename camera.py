@@ -12,6 +12,8 @@ import requests
 
 import sys
 
+from CHMUWeather import CHMUWeather
+
 cam = Camera(0, {"width": 1280, "height": 720})
 
 first_image = True
@@ -57,6 +59,12 @@ while True:
     csv_line.append(stamp)
     csv_line.append(str(value))
     csv_line.append(str(int(time.time())))
+
+    weather = CHMUWeather()
+
+    csv_line.append(str(weather.temperature_air))
+    csv_line.append(str(weather.air_pressure))
+    csv_line.append(str(weather.air_wind))
 
     if value.find('X') == -1:
         prev_run = value
