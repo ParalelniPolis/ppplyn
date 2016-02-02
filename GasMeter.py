@@ -30,7 +30,7 @@ class GasMeter(object):
     DIGITS_TOP_LEFT = (153, 18)
     DIGITS_BOTTOM_RIGHT = (1458, 270)
     DIGITS_THRESHOLD = 110
-    DIGITS_MINSIZE = 1500
+    DIGITS_MINSIZE = 2500
 
     # Our gasmeter measure up to 8 digits and has a decimal point after 5th digit.
     # DIGIT_X_CORDS - x coordinates of each digit on the normalized image
@@ -101,12 +101,12 @@ class GasMeter(object):
                 else:
                     save_list.append("X")
 
-            else:
-                # if we didn't recognized the last digit we suppose it is 5
-                if idx + 1 == self.DIGITS_TOTAL_NUMBER:
-                    detected_digits_fraction.append('5')
-                else:
-                    save_list.append("X")
+            # else:
+            #     # if we didn't recognized the last digit we suppose it is 5
+            #     if idx + 1 == self.DIGITS_TOTAL_NUMBER:
+            #         detected_digits_fraction.append('5')
+            #     else:
+            #         save_list.append("X")
 
             # This stores blobs (digits) into ./images/debug/blobs/
             # Great for creating datasets. See BlobStorage.py for details
@@ -130,7 +130,7 @@ class GasMeter(object):
 
             # return only the largest blob which should hopefully be our number
             self._save_debug_image(digit_area, "blobs_my_way" + str(digit_i))
-            digit_blob = digit_area.findBlobs(minsize=self.DIGITS_MINSIZE * 2, appx_level=1)
+            digit_blob = digit_area.findBlobs(minsize=self.DIGITS_MINSIZE, appx_level=1)
             if digit_blob:
                 digits.append(digit_blob[-1])
 
