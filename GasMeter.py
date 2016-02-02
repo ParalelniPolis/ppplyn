@@ -74,7 +74,6 @@ class GasMeter(object):
         digits = self.find_digits_in_area_by_cutting(digits_area)
 
         detected_digits_whole = ["X", "X", "X", "X", "X", "X", "X", "X"]
-        # detected_digits_fraction = []
 
         for idx, blob in enumerate(digits):
 
@@ -90,10 +89,12 @@ class GasMeter(object):
                 img_blob_ratio = img_blob.height / float(img_blob.width)
 
                 if img_blob_ratio > 2:
-
+                    # Is blob rectangle ?
                     detected_digit = self.digit_detector.detect_digit(img_blob)
 
-                    detected_digits_whole[idx] = str(detected_digit)
+                    if detected_digit is not None:
+                        # Is there a valid digit ?
+                        detected_digits_whole[idx] = str(detected_digit)
 
         detected_digits_whole_string = "".join(detected_digits_whole)
 
