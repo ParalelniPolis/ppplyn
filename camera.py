@@ -74,7 +74,7 @@ while True:
 
     api_call = requests.post('http://gas.pavelkral.eu/api.php', data=api_data)
 
-    print(api_call.status_code)
+    print("API : " + api_call.status_code + " " + api_call.content)
 
     if value.find('X') == -1:
         # Write only valid values
