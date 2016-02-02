@@ -21,6 +21,9 @@ class SVCDigitDetector(object):
 
     neural_network_cache = "./linear_svc_model.pickle"
 
+    # See black magic below in the code for explanation
+    crop_top_percent = 10
+
     def __init__(self):
 
         if isfile(self.neural_network_cache):
@@ -69,6 +72,19 @@ class SVCDigitDetector(object):
     def train_image(self, image, digit):
 
         self.dataset_array.append(self.image_to_array(image))
+        self.dataset_digit.append(digit)
+
+        # Black magic below :
+        # Camera is positioned slightly above the gas meter, therefore sometime we don't
+        # see top of the rounded digits.
+        # We can train the model even for 'cropped' images without top part
+
+        resize_to_height = int((image.height / 100.0) * self.crop_top_percent)
+
+        crop_start = (0, resize_to_height)
+        crop_stop = (image.width, image.height)
+
+        self.dataset_array.append(self.image_to_array(image.crop(crop_start, crop_stop)))
         self.dataset_digit.append(digit)
 
     def detect_digit(self, image):
