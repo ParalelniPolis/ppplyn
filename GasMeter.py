@@ -73,49 +73,31 @@ class GasMeter(object):
 
         digits = self.find_digits_in_area_by_cutting(digits_area)
 
-        detected_digits_whole = []
-        detected_digits_fraction = []
+        detected_digits_whole = ["X", "X", "X", "X", "X", "X", "X", "X"]
+        # detected_digits_fraction = []
 
         for idx, blob in enumerate(digits):
 
-            img_blob = blob.blobImage().binarize(self.DIGITS_THRESHOLD).invert()
+            if blob:
 
-            # save image if debugging
-            self._save_debug_image(img_blob, "blob" + str(idx))
+                img_blob = blob.blobImage().binarize(self.DIGITS_THRESHOLD).invert()
 
-            # to which list should I save this digit?
-            if idx + 1 <= self.DIGITS_WHOLE_CUBIC_METERS:
-                save_list = detected_digits_whole
-            else:
-                save_list = detected_digits_fraction
+                self.blob_storage.store_blob(img_blob)
 
-            # simple check if the blob can be a number
-            img_blob_ratio = img_blob.height / float(img_blob.width)
+                # save image if debugging
+                self._save_debug_image(img_blob, "blob" + str(idx))
 
-            if img_blob_ratio > 2:
+                img_blob_ratio = img_blob.height / float(img_blob.width)
 
-                detected_digit = self.digit_detector.detect_digit(img_blob)
+                if img_blob_ratio > 2:
 
-                if detected_digit is not None:
-                    save_list.append(str(detected_digit))
-                else:
-                    save_list.append("X")
+                    detected_digit = self.digit_detector.detect_digit(img_blob)
 
-            # else:
-            #     # if we didn't recognized the last digit we suppose it is 5
-            #     if idx + 1 == self.DIGITS_TOTAL_NUMBER:
-            #         detected_digits_fraction.append('5')
-            #     else:
-            #         save_list.append("X")
-
-            # This stores blobs (digits) into ./images/debug/blobs/
-            # Great for creating datasets. See BlobStorage.py for details
-            self.blob_storage.store_blob(img_blob)
+                    detected_digits_whole[idx] = str(detected_digit)
 
         detected_digits_whole_string = "".join(detected_digits_whole)
-        detected_digits_fraction_string = "".join(detected_digits_fraction)
 
-        return detected_digits_whole_string.lstrip("0") + "." + detected_digits_fraction_string
+        return detected_digits_whole_string.lstrip("0")[0:4] + "." + detected_digits_whole_string[5:8]
 
     def find_digits_in_area_by_cutting(self, digits_area):
         """
@@ -133,6 +115,9 @@ class GasMeter(object):
             digit_blob = digit_area.findBlobs(minsize=self.DIGITS_MINSIZE, appx_level=1)
             if digit_blob:
                 digits.append(digit_blob[-1])
+            else:
+                # There are no blobs (images) in this area
+                digits.append(None)
 
             logging.debug("Blobbing digit: " + str(digit_i))
 
