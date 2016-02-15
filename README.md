@@ -6,7 +6,7 @@
  Doing gas reading in 2016 with pen and paper is more than cumbersome.
 
 ## Getting things ready
-    sudo apt-get install ipython python-opencv python-scipy python-numpy python-pygame python-setuptools python-pip python-sklearn
+    sudo apt-get install ipython python-opencv python-scipy python-numpy python-pygame python-setuptools python-pip python-sklearn python-cssselect python-lxml
     sudo pip install https://github.com/sightmachine/SimpleCV/zipball/develop
     sudo pip install svgwrite
     git clone git@github.com:ParalelniPolis/ppplyn.git

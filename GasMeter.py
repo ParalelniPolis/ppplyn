@@ -21,7 +21,7 @@ class GasMeter(object):
     MARKERS_COLOR = (255, 228, 110)
     # Color stickers on the meter
     MARKERS_THRESHOLD = 60
-    MARKERS_MINSIZE = 500
+    MARKERS_MINSIZE = 420
 
     # Once we have fixed perspective, resize to this size
     RESIZE_TO_HEIGHT = 1529
@@ -156,6 +156,10 @@ class GasMeter(object):
         image_with_markers = self.image.colorDistance(color=self.MARKERS_COLOR).binarize(thresh=self.MARKERS_THRESHOLD)
 
         markers = image_with_markers.findBlobs(minsize=self.MARKERS_MINSIZE)
+
+        # Useful for debugging
+        # for marker in markers:
+        #     print(marker.area())
 
         markers.sort(key=methodcaller("area"), reverse=True)
 
